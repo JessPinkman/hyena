@@ -1,5 +1,20 @@
-.progress-ring__circle {
-  transition: stroke-dashoffset 0.35s;
-  transform: rotate(-90deg);
-  transform-origin: 50% 50%;
+@use "../config/colors";
+
+.progress {
+  &_ring {
+    &__circle {
+      padding: 1rem;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+      fill: transparent;
+      stroke-width: 4px;
+      stroke: black;
+      &.animated {
+        stroke-width: 4px;
+        stroke-dasharray: 10 20;
+        stroke: colors.$success-active;
+        transition: stroke-dashoffset 500ms;
+      }
+    }
+  }
 }

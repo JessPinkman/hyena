@@ -9,18 +9,20 @@ const Header = () => {
 
   return (
     <header>
-      {milestonesArray.map((milestone) => {
-        const isActive = currentMilestone === milestone;
-        return (
-          <div
-            key={milestone}
-            className={`stepper${isActive ? " active" : ""}`}
-          >
-            <div>{++i}</div>
-            {i < milestonesArray.length && <span></span>}
-          </div>
-        );
-      })}
+      <div className="stepper">
+        {milestonesArray.map((milestone) => {
+          const isActive = currentMilestone === milestone;
+          return (
+            <div
+              key={milestone}
+              className={`stepper_step${isActive ? " active" : ""}`}
+            >
+              {i !== 0 && <div className="stepper_step_separator"></div>}
+              <div className="stepper_step_number">{++i}</div>
+            </div>
+          );
+        })}
+      </div>
     </header>
   );
 };

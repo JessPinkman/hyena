@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useState } from "react";
 import { useRef } from "react";
 import { useContext, createContext, ReactNode } from "react";
-import steps from "../../config/steps";
+import fetchingCloudQRStep from "../../config/steps/fetchingCloudQRStep";
 import type { Step, StepContext } from "../../react-app-env";
 
 const context = createContext<StepContext>(null!);
@@ -11,7 +11,10 @@ export const useSteps = () => useContext(context);
 
 export const StepsProvider = ({ children }: { children: ReactNode }) => {
   const [stepIndex, setStepIndex] = useState(0);
-  const { current: stepList } = useRef<readonly Step[]>(steps);
+  const { current: stepList } = useRef<readonly Step[]>([
+    { ...fetchingCloudQRStep },
+    { ...fetchingCloudQRStep },
+  ]);
 
   const value: StepContext = useMemo(() => {
     const currentMilestone = stepList[stepIndex].milestone;

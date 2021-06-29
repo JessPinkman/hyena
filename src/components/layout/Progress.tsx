@@ -18,19 +18,17 @@ const Progress = () => {
 
   return (
     <div className="progress">
-      <svg className="progress-ring" height="120" width="120">
+      <svg className="progress_ring" height="120" width="120">
+        <circle className="progress_ring__circle" r="58" cx="60" cy="60" />
         <circle
           ref={circleNode}
-          className="progress-ring__circle"
-          strokeDasharray="10 20"
-          fill="transparent"
-          strokeWidth="5"
-          stroke="blue"
+          className="progress_ring__circle animated"
           r="58"
           cx="60"
           cy="60"
         />
       </svg>
+      <div>{currentProgress}%</div>
     </div>
   );
 };

@@ -1,8 +1,10 @@
 @use "../config/colors";
 
 .raspberry_device {
-  background-color: colors.$primary;
+  background-color: colors.$secondary;
   width: 1086px;
   height: 920px;
   margin: auto;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }

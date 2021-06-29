@@ -1,0 +1,42 @@
+@use "../config/colors";
+
+$header-padding: 0px;
+$stepper-number-size: 32px;
+$stepper-separator-width: 32px;
+$stepper-separator-height: 6px;
+
+header {
+  display: flex;
+  justify-content: center;
+  padding: $header-padding;
+}
+
+.stepper {
+  display: flex;
+  &_step {
+    display: flex;
+    align-items: center;
+    & > * {
+      background-color: black;
+      transition: 200ms background-color;
+    }
+    &.active > * {
+      background-color: colors.$success;
+    }
+    &_number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: $stepper-number-size;
+      width: $stepper-number-size;
+      border-radius: 50%;
+      color: white;
+      flex-grow: 1;
+    }
+    &_separator {
+      height: $stepper-separator-height;
+      display: block;
+      width: $stepper-separator-width;
+    }
+  }
+}

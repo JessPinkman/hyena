@@ -1,8 +1,19 @@
-import { Step } from "../react-app-env";
-import fetchingCloudQRStep from "./steps/fetchingCloudQRStep";
+import FetchCloudRender from "../components/steps/FetchCloudRender";
+import type { Step } from "../react-app-env";
+import { Milestones, StepStatus } from "./enums";
 
-const steps: Step[] = [];
+export const fetchingCloudQRStep: Step = {
+  label: "Fecthing Data",
+  order: 1,
+  render: FetchCloudRender,
+  status: StepStatus.IDLE,
+  milestone: Milestones.GENERATE,
+};
 
-steps.push(fetchingCloudQRStep);
-
-export default steps;
+export const manualActivation: Step = {
+  label: "Fecthing Data",
+  order: 2,
+  render: FetchCloudRender,
+  status: StepStatus.IDLE,
+  milestone: Milestones.CHECK,
+};
