@@ -1,5 +1,6 @@
 /// <reference types="react-scripts" />
 
+import React from "react";
 import { Milestones, StepStatus } from "./config/enums";
 
 export interface StepProps {
@@ -15,9 +16,19 @@ export interface Step {
   milestone: Milestones;
 }
 
-export type StepContext = {
-  next: () => void;
+export interface StepState {
+  steps: Step[];
   currentMilestone: Milestones;
   currentProgress: number;
   currentStep: Step;
+}
+
+export type StepAction = {
+  step: Step;
+  status: StepStatus;
 };
+
+export interface StepContext {
+  stepState: StepState;
+  stepDispatch: React.Dispatch<StepAction>;
+}

@@ -1,8 +1,9 @@
 export enum StepStatus {
-  SUCCESS,
   IDLE,
-  ERROR,
+  STARTED,
   PROCESSING,
+  SUCCESS,
+  ERROR,
 }
 
 export enum Milestones {
