@@ -1,34 +1,43 @@
 import { useEffect } from "react";
 import { useRef } from "react";
+import { StepStatus } from "../../utils/enums";
 import { useSteps } from "../providers/useSteps";
 
 const Progress = () => {
-  const { currentProgress } = useSteps();
+  const {
+    currentStep: { progress },
+    stepStatus,
+  } = useSteps();
+
+  const value =
+    stepStatus === StepStatus.SUCCESS ? progress.success : progress.load;
 
   const circleNode = useRef<SVGCircleElement>(null!);
 
   useEffect(() => {
     const radius = circleNode.current.r.baseVal.value;
     const circumference = radius * 2 * Math.PI;
-    const offset = circumference - (currentProgress / 100) * circumference;
+    const offset = circumference - (value / 100) * circumference;
 
     circleNode.current.style.strokeDasharray = `${circumference} ${circumference}`;
     circleNode.current.style.strokeDashoffset = offset.toString();
-  }, [currentProgress]);
+  }, [value]);
 
   return (
     <div className="progress">
-      <svg className="progress_ring" height="120" width="120">
-        <circle className="progress_ring__circle" r="58" cx="60" cy="60" />
+      <svg className="progress_ring" height="200" width="200">
+        <circle className="progress_ring__circle" r="88" cx="100" cy="100" />
         <circle
           ref={circleNode}
           className="progress_ring__circle animated"
-          r="58"
-          cx="60"
-          cy="60"
+          r="88"
+          cx="100"
+          cy="100"
         />
       </svg>
-      <div>{currentProgress}%</div>
+      <div className="progress_number heading--strong color--success">
+        {value}%
+      </div>
     </div>
   );
 };

@@ -1,15 +1,50 @@
-$primary: #47baab;
-$primary-hover: #1b7f63;
-$primary-active: #1b7f63;
-$secondary: #54595f;
-$secondary-hover: #54595f;
-$secondary-active: #54595f;
-$success: #47baab;
-$success-hover: #47baab;
-$success-active: #47baab;
-$info: #54595f;
-$info-hover: #54595f;
-$info-active: #54595f;
-$warning: #ffb236;
-$warning-hover: #ffb236;
-$warning-active: #ffb236;
+//bg
+$dark: #182254;
+$less-dark: #2f4569;
+
+//text color
+$clear: #ffffff;
+$soft: #a5a5a5;
+$alert: #b72c3c;
+
+$success: #23ffbd;
+
+@mixin apply-colors($property, $prefix: null, $suffix: null) {
+  &--dark {
+    #{$property}: $prefix $dark $suffix;
+  }
+  &--less-dark {
+    #{$property}: $prefix $less-dark $suffix;
+  }
+  &--clear {
+    #{$property}: $prefix $clear $suffix;
+  }
+  &--soft {
+    #{$property}: $prefix $soft $suffix;
+  }
+  &--alert {
+    #{$property}: $prefix $alert $suffix;
+  }
+  &--success {
+    #{$property}: $prefix $success $suffix;
+  }
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid $soft;
+  margin: 0;
+}
+
+.color {
+  @include apply-colors(color);
+}
+
+.bg {
+  @include apply-colors(background-color);
+}
+
+.border {
+  border: 1px solid black;
+  @include apply-colors(border, 1px solid, null);
+}

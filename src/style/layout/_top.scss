@@ -1,0 +1,14 @@
+@use "../config/colors";
+
+.top_bar {
+  gap: 10px;
+  height: 36px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.to-right {
+  margin-left: auto;
+}

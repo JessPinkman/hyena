@@ -1,2 +1,11 @@
 @use "./layout/layout";
 @use "components/components";
+@use "./config/headings";
+@use "./config/position";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Noto Sans TC", sans-serif;
+}

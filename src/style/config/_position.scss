@@ -1,0 +1,122 @@
+.m {
+  margin: 2px;
+  @for $i from 0 to 25 {
+    &\:#{$i} {
+      margin: #{$i * 2}px;
+    }
+  }
+  &t {
+    @for $i from 0 to 25 {
+      &\:#{$i} {
+        margin-top: #{$i * 2}px;
+      }
+    }
+  }
+  &b {
+    @for $i from 0 to 25 {
+      &\:#{$i} {
+        margin-bottom: #{$i * 2}px;
+      }
+    }
+  }
+  &l {
+    @for $i from 0 to 25 {
+      &\:#{$i} {
+        margin-left: #{$i * 2}px;
+      }
+    }
+  }
+  &r {
+    @for $i from 0 to 25 {
+      &\:#{$i} {
+        margin-right: #{$i * 2}px;
+      }
+    }
+  }
+  &x {
+    @for $i from 0 to 25 {
+      &\:#{$i} {
+        margin-left: #{$i * 2}px;
+        margin-right: #{$i * 2}px;
+      }
+    }
+    &\:auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  &l {
+    @for $i from 0 to 25 {
+      &\:#{$i} {
+        margin-left: #{$i * 2}px;
+      }
+    }
+    &\:auto {
+      margin-left: auto;
+    }
+  }
+  &r {
+    @for $i from 0 to 25 {
+      &\:#{$i} {
+        margin-right: #{$i * 2}px;
+      }
+    }
+    &\:auto {
+      margin-right: auto;
+    }
+  }
+
+  &y {
+    @for $i from 0 to 25 {
+      &\:#{$i} {
+        margin-top: #{$i * 2}px;
+        margin-bottom: #{$i * 2}px;
+      }
+    }
+  }
+}
+
+.p {
+  padding: 2px;
+  @for $i from 0 to 25 {
+    &\:#{$i} {
+      padding: #{$i * 2}px;
+    }
+  }
+  &t {
+    @for $i from 0 to 25 {
+      &\:#{$i} {
+        padding-top: #{$i * 2}px;
+      }
+    }
+  }
+  &b {
+    @for $i from 0 to 25 {
+      &\:#{$i} {
+        padding-bottom: #{$i * 2}px;
+      }
+    }
+  }
+  &l {
+    @for $i from 0 to 25 {
+      &\:#{$i} {
+        padding-left: #{$i * 2}px;
+      }
+    }
+  }
+  &r {
+    @for $i from 0 to 25 {
+      &\:#{$i} {
+        padding-right: #{$i * 2}px;
+      }
+    }
+  }
+  &y {
+    @for $i from 0 to 25 {
+      &\:#{$i} {
+        padding-top: #{$i * 2}px;
+        padding-bottom: #{$i * 2}px;
+      }
+    }
+  }
+}

@@ -1,20 +1,28 @@
 @use "../config/colors";
 
 .progress {
-  &_ring {
-    &__circle {
-      padding: 1rem;
-      transform: rotate(-90deg);
-      transform-origin: 50% 50%;
-      fill: transparent;
-      stroke-width: 4px;
-      stroke: black;
-      &.animated {
-        stroke-width: 4px;
-        stroke-dasharray: 10 20;
-        stroke: colors.$success-active;
-        transition: stroke-dashoffset 500ms;
-      }
+  position: relative;
+  width: 200px;
+  height: 200px;
+  &_ring__circle {
+    padding: 1rem;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    fill: transparent;
+    stroke-width: 12px;
+    stroke: colors.$dark;
+    &.animated {
+      stroke-width: 12px;
+      stroke-dasharray: 10 20;
+      stroke: colors.$success;
+      transition: stroke-dashoffset 500ms;
     }
+  }
+  &_number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 48px;
+    transform: translate(-50%, -50%);
   }
 }

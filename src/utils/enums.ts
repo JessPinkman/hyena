@@ -1,6 +1,4 @@
 export enum StepStatus {
-  IDLE,
-  STARTED,
   PROCESSING,
   SUCCESS,
   ERROR,

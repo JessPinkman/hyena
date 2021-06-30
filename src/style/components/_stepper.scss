@@ -2,41 +2,42 @@
 
 $header-padding: 0px;
 $stepper-number-size: 32px;
+$stepper-number-size-inactive: 16px;
 $stepper-separator-width: 32px;
-$stepper-separator-height: 6px;
-
-header {
-  display: flex;
-  justify-content: center;
-  padding: $header-padding;
-}
+$stepper-separator-height: 5px;
 
 .stepper {
   display: flex;
+  align-items: center;
   &_step {
     display: flex;
     align-items: center;
-    & > * {
-      background-color: black;
-      transition: 200ms background-color;
-    }
-    &.active > * {
-      background-color: colors.$success;
-    }
-    &_number {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: $stepper-number-size;
-      width: $stepper-number-size;
-      border-radius: 50%;
-      color: white;
-      flex-grow: 1;
-    }
-    &_separator {
-      height: $stepper-separator-height;
-      display: block;
-      width: $stepper-separator-width;
-    }
+  }
+}
+
+.stepper_number {
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%;
+  color: colors.$dark;
+  background-color: colors.$dark;
+  height: $stepper-number-size-inactive;
+  width: $stepper-number-size-inactive;
+
+  &.active {
+    line-height: $stepper-number-size;
+    height: $stepper-number-size;
+    width: $stepper-number-size;
+    background-color: colors.$success;
+  }
+}
+
+.stepper_separator {
+  height: $stepper-separator-height;
+  display: block;
+  width: $stepper-separator-width;
+  background-color: colors.$dark;
+  &.active {
+    background-color: colors.$success;
   }
 }

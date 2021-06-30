@@ -1,0 +1,26 @@
+@use "../config/colors";
+
+.main_box {
+  background-color: colors.$less-dark;
+  padding: 20px;
+  height: 390px;
+}
+
+.header {
+  height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  &_right {
+    position: absolute;
+    right: 0;
+  }
+}
+
+.content {
+  margin: 56px;
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+}

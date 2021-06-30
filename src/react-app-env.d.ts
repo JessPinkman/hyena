@@ -1,34 +1,24 @@
 /// <reference types="react-scripts" />
 
 import React from "react";
-import { Milestones, StepStatus } from "./config/enums";
-
-export interface StepProps {
-  onSuccess: () => void;
-  onError: () => void;
-}
+import { Milestones, StepStatus } from "./utils/enums";
 
 export interface Step {
   label: string;
-  order: number;
-  render: (props: SmallStepProps) => JSX.Element;
-  status: StepStatus;
+  onSuccess: () => JSX.Element;
+  onProgress: () => JSX.Element;
+  onError: () => JSX.Element;
   milestone: Milestones;
+  progress: {
+    load: number;
+    success: number;
+  };
 }
-
-export interface StepState {
-  steps: Step[];
-  currentMilestone: Milestones;
-  currentProgress: number;
-  currentStep: Step;
-}
-
-export type StepAction = {
-  step: Step;
-  status: StepStatus;
-};
 
 export interface StepContext {
-  stepState: StepState;
-  stepDispatch: React.Dispatch<StepAction>;
+  stepStatus: StepStatus;
+  setStatus: React.Dispatch<React.SetStateAction<StepStatus>>;
+  currentStep: Step;
+  nextStep: () => void;
+  isProcessEnd: boolean;
 }
